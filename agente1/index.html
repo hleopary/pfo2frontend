@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cultura Ciclista — Comunidad y divulgación sobre la historia, mecánica y movilidad urbana en bicicleta.">
+  <title>Cultura Ciclista | Historia, Mecánica y Movilidad Urbana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#1B4332',
+              'green-light': '#2D6A4F',
+              'green-bright': '#40916C',
+              accent: '#F77F00',
+              'accent-light': '#FCBF49',
+              dark: '#0D1B12',
+              slate: '#1A1F1C',
+            }
+          },
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-body text-gray-200 bg-brand-dark antialiased overflow-x-hidden">
+
+  <!-- 1. CABECERA -->
+  <header id="inicio" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-header>
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-gradient-to-br from-brand-green-bright to-brand-accent flex items-center justify-center shadow-lg shadow-brand-accent/20 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5 lg:w-6 lg:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="5.5" cy="17.5" r="3.5" stroke-width="2"/>
+              <circle cx="18.5" cy="17.5" r="3.5" stroke-width="2"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.5 17.5L12 6l6.5 11.5M9 12h6"/>
+            </svg>
+          </div>
+          <span class="font-display font-bold text-lg lg:text-xl text-white tracking-tight">Cultura Ciclista</span>
+        </a>
+
+        <ul class="hidden md:flex items-center gap-1 lg:gap-2">
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+
+        <a href="#contacto" class="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-brand-accent hover:bg-brand-accent-light text-brand-dark font-semibold text-sm transition-all hover:shadow-lg hover:shadow-brand-accent/30 hover:-translate-y-0.5">
+          Unite ahora
+        </a>
+
+        <button type="button" id="menu-toggle" class="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden hidden pb-4">
+        <ul class="flex flex-col gap-1 bg-brand-slate/95 backdrop-blur-md rounded-2xl p-3 border border-white/10">
+          <li><a href="#inicio" class="mobile-nav-link">Inicio</a></li>
+          <li><a href="#nosotros" class="mobile-nav-link">Nosotros</a></li>
+          <li><a href="#servicios" class="mobile-nav-link">Servicios</a></li>
+          <li><a href="#testimonios" class="mobile-nav-link">Testimonios</a></li>
+          <li><a href="#contacto" class="mobile-nav-link">Contacto</a></li>
+          <li class="pt-2">
+            <a href="#contacto" class="block text-center px-5 py-3 rounded-full bg-brand-accent text-brand-dark font-semibold">Unite ahora</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 2. HERO -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <div class="hero-bg absolute inset-0 z-0"></div>
+      <div class="hero-overlay absolute inset-0 z-[1]"></div>
+      <div class="hero-pattern absolute inset-0 z-[2] opacity-30"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="animate-fade-up">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-green-bright/20 border border-brand-green-bright/40 text-brand-accent-light text-sm font-medium mb-6">
+              <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+              Comunidad activa · Movilidad sostenible
+            </span>
+            <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] tracking-tight mb-6">
+              El vehículo del futuro se inventó hace
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-accent-light"> dos siglos.</span>
+              Sumate al cambio.
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-xl mb-8">
+              Desde la draisina de 1817 hasta las bicicletas eléctricas de hoy, recorremos la historia, la mecánica y el presente del ciclismo urbano. Una comunidad que pedalea con propósito.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#contacto" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-accent hover:bg-brand-accent-light text-brand-dark font-bold text-lg transition-all hover:shadow-xl hover:shadow-brand-accent/40 hover:-translate-y-1">
+                Unite a la Comunidad
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <a href="#nosotros" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/20 hover:border-brand-green-bright text-white font-semibold text-lg transition-all hover:bg-white/5">
+                Conocé nuestra historia
+              </a>
+            </div>
+            <div class="flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
+              <div>
+                <p class="font-display font-bold text-3xl text-white">2.500+</p>
+                <p class="text-sm text-gray-400">Ciclistas activos</p>
+              </div>
+              <div class="w-px h-10 bg-white/10"></div>
+              <div>
+                <p class="font-display font-bold text-3xl text-white">180+</p>
+                <p class="text-sm text-gray-400">Años de evolución</p>
+              </div>
+              <div class="w-px h-10 bg-white/10"></div>
+              <div>
+                <p class="font-display font-bold text-3xl text-white">48</p>
+                <p class="text-sm text-gray-400">Salidas al año</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative animate-fade-up animation-delay-200 hidden lg:block">
+            <div class="hero-visual relative aspect-square max-w-lg mx-auto">
+              <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-green-light/40 to-brand-accent/20 backdrop-blur-sm border border-white/10"></div>
+              <div class="absolute inset-4 rounded-2xl overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-brand-green via-brand-green-light to-brand-green-bright flex items-center justify-center">
+                  <svg class="w-64 h-64 text-white/20" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+                    <circle cx="50" cy="140" r="30"/>
+                    <circle cx="150" cy="140" r="30"/>
+                    <path d="M50 140 L80 60 L120 60 L150 140 M70 100 L130 100" stroke="currentColor" stroke-width="8" fill="none"/>
+                    <circle cx="100" cy="50" r="15"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="absolute -bottom-4 -left-4 bg-brand-slate border border-white/10 rounded-2xl p-4 shadow-2xl">
+                <p class="text-brand-accent font-display font-bold text-2xl">0 emisiones</p>
+                <p class="text-gray-400 text-sm">Transporte limpio</p>
+              </div>
+              <div class="absolute -top-4 -right-4 bg-brand-accent rounded-2xl p-4 shadow-2xl">
+                <p class="text-brand-dark font-display font-bold text-2xl">100%</p>
+                <p class="text-brand-dark/70 text-sm font-medium">Pasión</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#nosotros" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce text-white/50 hover:text-brand-accent transition-colors" aria-label="Desplazarse hacia abajo">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </a>
+    </section>
+
+    <!-- 3. SOBRE NOSOTROS -->
+    <section id="nosotros" class="py-20 lg:py-28 relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-dark via-brand-slate/50 to-brand-dark"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="order-2 lg:order-1">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-4">
+                <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-brand-green to-brand-green-light p-6 flex flex-col justify-end">
+                  <p class="font-display font-bold text-white text-xl">1817</p>
+                  <p class="text-brand-accent-light text-sm">Primera draisina</p>
+                </div>
+                <div class="rounded-2xl overflow-hidden aspect-square bg-brand-accent/20 border border-brand-accent/30 p-6 flex items-center justify-center">
+                  <svg class="w-16 h-16 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="space-y-4 pt-8">
+                <div class="rounded-2xl overflow-hidden aspect-square bg-brand-green-bright/20 border border-brand-green-bright/30 p-6 flex items-center justify-center">
+                  <svg class="w-16 h-16 text-brand-green-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-brand-green-light to-brand-accent/40 p-6 flex flex-col justify-end">
+                  <p class="font-display font-bold text-white text-xl">Hoy</p>
+                  <p class="text-brand-accent-light text-sm">Movilidad urbana</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2">
+            <span class="text-brand-accent font-semibold text-sm uppercase tracking-widest">Sobre Nosotros</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mt-3 mb-6 leading-tight">
+              Más que transporte: una revolución sobre dos ruedas
+            </h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+              Cultura Ciclista nació de la convicción de que la bicicleta es uno de los inventos más transformadores de la humanidad. Desde Karl Drais y su máquina de correr hasta las bicicletas de carbono y e-bikes que cruzan nuestras ciudades, cada pedalada cuenta una historia de innovación, libertad y resistencia.
+            </p>
+            <p class="text-gray-400 leading-relaxed mb-8">
+              Hoy, en un mundo que busca alternativas al automóvil, la bici recupera su rol crucial: reduce emisiones, mejora la salud pública, descongestiona las calles y teje comunidades más humanas. Somos divulgadores, mecánicos aficionados y ciclistas urbanos unidos por una misma pasión.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-green-bright/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-brand-green-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-300">Divulgación accesible sobre la evolución histórica de la bicicleta</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-green-bright/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-brand-green-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-300">Promoción del ciclismo como herramienta de movilidad sostenible</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-green-bright/20 flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-brand-green-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="text-gray-300">Comunidad activa que comparte conocimiento y experiencias en la calle</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SERVICIOS / CARACTERÍSTICAS -->
+    <section id="servicios" class="py-20 lg:py-28 bg-brand-slate/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-brand-accent font-semibold text-sm uppercase tracking-widest">Nuestros Pilares</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mt-3 mb-6">
+            Todo lo que necesitás para vivir la cultura ciclista
+          </h2>
+          <p class="text-gray-400 text-lg">
+            Historia, herramientas y aventuras urbanas. Tres ejes que conectan el pasado, el presente y el futuro del pedaleo.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <article class="service-card group">
+            <div class="service-icon bg-brand-green-bright/10 text-brand-green-bright group-hover:bg-brand-green-bright group-hover:text-white">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-3">Historia y Evolución</h3>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Artículos, líneas de tiempo interactivas y podcasts que recorren desde la draisina hasta las bicicletas inteligentes. Descubrí cómo cada innovación mecánica cambió la forma de moverse el mundo.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Líneas de tiempo por década</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Biografías de pioneros</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Archivo fotográfico histórico</li>
+            </ul>
+          </article>
+
+          <article class="service-card group">
+            <div class="service-icon bg-brand-accent/10 text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-dark">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-3">Talleres de Mecánica</h3>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Aprendé a mantener, reparar y optimizar tu bici con talleres presenciales y guías paso a paso. Desde ajustar frenos hasta entender la transmisión: autonomía mecánica para cada ciclista.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Talleres mensuales gratuitos</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Guías de mantenimiento</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Diagnóstico comunitario</li>
+            </ul>
+          </article>
+
+          <article class="service-card group md:col-span-2 lg:col-span-1">
+            <div class="service-icon bg-brand-accent-light/10 text-brand-accent-light group-hover:bg-brand-accent-light group-hover:text-brand-dark">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-3">Cicloturismo Cultural / Salidas Urbanas</h3>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Recorridos guiados por barrios, monumentos y ciclovías de la ciudad. Cada salida combina ejercicio, patrimonio urbano y encuentro comunitario. Pedaleamos juntos, descubrimos juntos.
+            </p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Rutas temáticas mensuales</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Niveles para principiantes y avanzados</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>Merienda comunitaria al finalizar</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. TESTIMONIOS -->
+    <section id="testimonios" class="py-20 lg:py-28 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-green-bright/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-brand-accent font-semibold text-sm uppercase tracking-widest">Testimonios</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mt-3 mb-6">
+            Voces de quienes pedalean cada día
+          </h2>
+          <p class="text-gray-400 text-lg">
+            Ciclistas urbanos que transformaron su rutina y encontraron en Cultura Ciclista una comunidad que los acompaña.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <blockquote class="testimonial-card">
+            <div class="flex items-center gap-1 mb-4 text-brand-accent">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-gray-300 leading-relaxed mb-6">
+              "Dejé el auto hace dos años gracias a los talleres de mecánica. Ahora arreglo mi bici sola y llego al trabajo más rápido, sin estrés y con energía de sobra. Cultura Ciclista cambió mi forma de ver la ciudad."
+            </p>
+            <footer class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-green-bright to-brand-green flex items-center justify-center font-display font-bold text-white">ML</div>
+              <div>
+                <cite class="not-italic font-semibold text-white block">María López</cite>
+                <span class="text-sm text-gray-500">Commutera diaria · Palermo</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <div class="flex items-center gap-1 mb-4 text-brand-accent">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-gray-300 leading-relaxed mb-6">
+              "Las salidas urbanas me hicieron redescubrir barrios que nunca había visitado. Pedalear en grupo, aprender historia de la ciudad y terminar con un café: no hay mejor plan de domingo."
+            </p>
+            <footer class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-accent to-brand-accent-light flex items-center justify-center font-display font-bold text-brand-dark">JR</div>
+              <div>
+                <cite class="not-italic font-semibold text-white block">Julián Ríos</cite>
+                <span class="text-sm text-gray-500">Cicloturista · San Telmo</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card md:col-span-2 lg:col-span-1">
+            <div class="flex items-center gap-1 mb-4 text-brand-accent">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="text-gray-300 leading-relaxed mb-6">
+              "Los artículos de historia me engancharon. Nunca pensé que pedalear y leer sobre la evolución de los cambios me iba a fascinar tanto. Mi hija de 12 años ahora también va en bici al colegio."
+            </p>
+            <footer class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-green-light to-brand-green-bright flex items-center justify-center font-display font-bold text-white">AC</div>
+              <div>
+                <cite class="not-italic font-semibold text-white block">Ana Castillo</cite>
+                <span class="text-sm text-gray-500">Miembro fundadora · Belgrano</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FORMULARIO DE CONTACTO -->
+    <section id="contacto" class="py-20 lg:py-28 bg-brand-slate/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div>
+            <span class="text-brand-accent font-semibold text-sm uppercase tracking-widest">Contacto</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mt-3 mb-6">
+              Sumate y recibí novedades de la comunidad
+            </h2>
+            <p class="text-gray-400 text-lg leading-relaxed mb-8">
+              Dejanos tu mensaje y te contamos sobre próximos talleres, salidas urbanas y contenido exclusivo sobre la cultura ciclista. Sin spam, solo pedaladas.
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-brand-green-bright/10 flex items-center justify-center text-brand-green-bright">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Email</p>
+                  <p class="text-white font-medium">hola@culturaciclista.org</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Encuentros semanales</p>
+                  <p class="text-white font-medium">Parque Centenario · Sábados 10 hs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <div id="form-success" class="hidden form-success-message" role="alert">
+              <svg class="w-6 h-6 text-brand-green-bright flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <p class="font-semibold text-white">¡Mensaje enviado!</p>
+                <p class="text-sm text-gray-400">Gracias por contactarnos. Te responderemos pronto.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre completo" required autocomplete="name">
+              <span class="form-error hidden" data-error-for="nombre">Ingresá tu nombre</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required autocomplete="email">
+              <span class="form-error hidden" data-error-for="email">Ingresá un email válido</span>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="5" class="form-input resize-none" placeholder="Contanos qué te interesa: talleres, salidas, historia..." required></textarea>
+              <span class="form-error hidden" data-error-for="mensaje">Escribí un mensaje</span>
+            </div>
+
+            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-brand-accent hover:bg-brand-accent-light text-brand-dark font-bold text-lg transition-all hover:shadow-xl hover:shadow-brand-accent/30 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
+              Enviar mensaje
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. FOOTER -->
+  <footer class="bg-brand-slate border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#inicio" class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-green-bright to-brand-accent flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="5.5" cy="17.5" r="3.5" stroke-width="2"/>
+                <circle cx="18.5" cy="17.5" r="3.5" stroke-width="2"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.5 17.5L12 6l6.5 11.5M9 12h6"/>
+              </svg>
+            </div>
+            <span class="font-display font-bold text-lg text-white">Cultura Ciclista</span>
+          </a>
+          <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+            Comunidad dedicada a la historia, mecánica y movilidad urbana en bicicleta. Pedaleamos hacia un futuro más sostenible.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-display font-semibold text-white mb-4">Navegación</h4>
+          <ul class="space-y-2">
+            <li><a href="#inicio" class="footer-link">Inicio</a></li>
+            <li><a href="#nosotros" class="footer-link">Nosotros</a></li>
+            <li><a href="#servicios" class="footer-link">Servicios</a></li>
+            <li><a href="#testimonios" class="footer-link">Testimonios</a></li>
+            <li><a href="#contacto" class="footer-link">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-semibold text-white mb-4">Comunidad</h4>
+          <ul class="space-y-2">
+            <li><a href="#servicios" class="footer-link">Talleres</a></li>
+            <li><a href="#servicios" class="footer-link">Salidas urbanas</a></li>
+            <li><a href="#servicios" class="footer-link">Blog histórico</a></li>
+            <li><a href="#contacto" class="footer-link">Newsletter</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-semibold text-white mb-4">Redes sociales</h4>
+          <div class="flex gap-3">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter / X">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm text-center sm:text-left">
+          &copy; 2026 Cultura Ciclista. Todos los derechos reservados.
+        </p>
+        <div class="flex gap-6">
+          <a href="#" class="text-gray-500 hover:text-brand-accent text-sm transition-colors">Privacidad</a>
+          <a href="#" class="text-gray-500 hover:text-brand-accent text-sm transition-colors">Términos</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

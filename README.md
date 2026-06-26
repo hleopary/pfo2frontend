@@ -1,0 +1,64 @@
+# Práctica Formativa Obligatoria 2 (PFO2) - Prompt Engineering
+
+Este repositorio contiene el resultado de la Práctica Formativa Obligatoria 2 para la materia de **Técnicas de Programación Avanzada** del **IFTS N.°29**. El objetivo fue utilizar agentes de IA autónomos para generar dos versiones de una landing page a partir de un único prompt detallado.
+
+---
+
+### Datos del Estudiante
+
+-   **Nombre y Apellido:** Leandro Paryszewski
+-   **Comisión:** D
+-   **Institución:** IFTS N.°29
+
+---
+
+### 🚀 Deploy del Proyecto
+
+El proyecto unificado, que incluye la portada de acceso y las dos landing pages generadas, está disponible en el siguiente enlace:
+
+[Ir al sitio unificado en Vercel](INGRESAR_LINK_DE_VERCEL_AQUÍ)
+
+---
+
+### 📝 El Prompt Exacto Utilizado
+
+A continuación se presenta el prompt definitivo en castellano que se utilizó de forma idéntica para instruir a los dos agentes de IA (Cursor y Codex) en la generación de las landing pages.
+
+```markdown
+ROL: Actúas como un desarrollador frontend senior experto. Tu tarea es generar de forma completamente autónoma una Landing Page profesional, completa y 100% responsiva basada en las especificaciones detalladas a continuación, sin requerir ninguna intervención o modificación manual de código por mi parte.
+
+TEMÁTICA Y ENFOQUE:
+La Landing Page se llamará "Cultura Ciclista". Es una plataforma comunitaria y de divulgación dedicada a difundir la evolución e historia de la bicicleta, su mecánica, su uso diario y el impacto del ciclismo urbano como transporte sostenible. El diseño debe evocar dinamismo, sustentabilidad y pasión por las dos ruedas, utilizando una paleta de colores moderna (por ejemplo: verde ecología/urbano, negro/gris oscuro para legibilidad y un color de acento energético como naranja o amarillo).
+
+CONTEXTO Y REQUISITOS DE DISEÑO:
+La Landing Page debe contar con tipografía moderna, una paleta de colores cohesiva y un estilo visual de alta calidad. Debe estar estructurada utilizando HTML5 semántico estándar y CSS3 limpio (podés utilizar un CDN como Tailwind CSS o Bootstrap para lograr un diseño rápido y pulido). Todos los elementos interactivos deben ser completamente operativos del lado del cliente.
+
+SECCIONES OBLIGATORIAS:
+La página generada debe contener exactamente estas 7 secciones dentro de un único diseño unificado, adaptando los textos de forma creativa a la temática:
+1. Cabecera (Header): Barra de navegación con el nombre de la marca "Cultura Ciclista", marcador de posición para el logo y enlaces de ancla funcionales hacia todas las secciones.
+2. Sección Principal (Hero Section): Título de alto impacto ("El vehículo del futuro se inventó hace dos siglos. Sumate al cambio"), un subtítulo atractivo sobre la historia y el presente de la bici, un contenedor visual de fondo y un botón de llamada a la acción (CTA) prominente ("Unite a la Comunidad").
+3. Descripción / Sobre Nosotros: Una breve reseña sobre la importancia de la bicicleta desde su invención hasta su rol crucial hoy en la movilidad sostenible y la salud urbana.
+4. Características / Servicios: Disposición en cuadrícula (grid) o flexbox que presente los pilares de la plataforma: "Historia y Evolución" (divulgación), "Talleres de Mecánica" y "Cicloturismo Cultural / Salidas Urbanas".
+5. Testimonios / Reseñas: Una sección con citas de miembros de la comunidad o ciclistas urbanos contando su experiencia usando la bici todos los días y participando en la plataforma.
+6. Formulario de Contacto: Un formulario visualmente completo para recibir novedades de la comunidad con campos de entrada (Nombre, Email, Mensaje) y un botón de envío (Solo maquetado visual, no requiere integración funcional de backend).
+7. Pie de Página (Footer): Un pie de página limpio que incluya información de derechos de autor y enlaces de marcador de posición para redes sociales.
+
+RESTRICCIONES ESTRICTAS:
+- No dejes comentarios de marcador de posición en el código como "<!-- agregar estilos aquí -->" o "// implementar más tarde". Cada sección debe estar completamente escrita, desarrollada y poblada visualmente.
+- No esperes ninguna interacción humana ni ajustes manuales de archivos. Entrega la estructura de código completa y lista para producción de inmediato.
+- Asegurá que todas las secciones estén correctamente integradas en una experiencia de usuario única, fluida y responsiva que se adapte perfectamente desde dispositivos móviles hasta pantallas de escritorio.
+```
+
+---
+
+### 📸 Capturas de Pantalla
+
+A continuación se muestran las capturas de las dos landing pages generadas por los agentes.
+
+**Landing Page - Agente 1 (Cursor)**
+
+![Landing Agente 1](./capturas/agente1.png)
+
+**Landing Page - Agente 2 (Codex)**
+
+![Landing Agente 2](./capturas/agente2.png)

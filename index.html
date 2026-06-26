@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFO2 - Portada de Acceso</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white antialiased">
+
+  <div class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div class="text-center w-full max-w-4xl mx-auto">
+      
+      <!-- Título Principal -->
+      <header class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+          Práctica Formativa Obligatoria 2
+        </h1>
+        <p class="mt-3 text-lg text-gray-400">Prompt Engineering y Desarrollo Frontend Autónomo</p>
+      </header>
+
+      <!-- Accesos Directos -->
+      <main>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+        <!-- Link 2: Agente 1 -->
+          <a href="agente1/index.html" class="group block p-8 bg-gray-800/50 border border-white/10 rounded-2xl hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-green-500 flex items-center justify-center text-xl font-bold">A1</div>
+              <h2 class="text-2xl font-bold text-left">Landing Page - Agente 1</h2>
+            </div>
+            <p class="text-gray-400 text-left">Diseño generado por el modelo <span class="font-semibold text-emerald-400">Cursor</span>, enfocado en una estética moderna y oscura con animaciones.</p>
+            <span class="mt-6 inline-block font-semibold text-cyan-400 group-hover:underline">Ver resultado &rarr;</span>
+          </a>
+
+          <!-- Link 3: Agente 2 -->
+          <a href="agente2/index.html" class="group block p-8 bg-gray-800/50 border border-white/10 rounded-2xl hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-1">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-xl font-bold">A2</div>
+              <h2 class="text-2xl font-bold text-left">Landing Page - Agente 2</h2>
+            </div>
+            <p class="text-gray-400 text-left">Diseño generado por el modelo <span class="font-semibold text-amber-400">Codex</span>, con un enfoque clásico, CSS puro y estructura semántica.</p>
+            <span class="mt-6 inline-block font-semibold text-cyan-400 group-hover:underline">Ver resultado &rarr;</span>
+          </a>
+
+        </div>
+
+        <!-- Link 1: Prompt -->
+        <div class="mt-12 text-center">
+          <a href="prompt.txt" class="text-gray-400 hover:text-white underline underline-offset-4 transition-colors">
+            Ver texto plano del Prompt utilizado
+          </a>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+</body>
+</html>

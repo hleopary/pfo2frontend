@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cultura Ciclista: comunidad de divulgacion, mecanica, historia y movilidad urbana en bicicleta.">
+  <title>Cultura Ciclista | Historia, mecanica y movilidad urbana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #16a34a;
+      --green-dark: #0f7a3a;
+      --ink: #111827;
+      --muted: #526070;
+      --line: #d8e1dc;
+      --paper: #f7faf7;
+      --white: #ffffff;
+      --accent: #f59e0b;
+      --accent-dark: #c46d05;
+      --charcoal: #17201b;
+      --shadow: 0 20px 55px rgba(17, 24, 39, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 250, 247, 0.94);
+      border-bottom: 1px solid rgba(216, 225, 220, 0.85);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1140px, calc(100% - 32px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--charcoal);
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--charcoal);
+      border-radius: 50%;
+      color: var(--green);
+      font-size: 22px;
+      background: var(--white);
+      box-shadow: 5px 5px 0 var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .nav-links a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 8px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-dark);
+      background: rgba(22, 163, 74, 0.1);
+    }
+
+    .section {
+      padding: 84px 0;
+      scroll-margin-top: 88px;
+    }
+
+    .container {
+      width: min(1140px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(17, 24, 39, 0.86), rgba(17, 24, 39, 0.42)),
+        url("https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1800&q=85") center/cover;
+      color: var(--white);
+      padding: 92px 0 74px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(280px, 0.72fr);
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ecfdf5;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 22px;
+      font-size: clamp(2.45rem, 7vw, 5.85rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 670px;
+      color: #e7f2eb;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border: 0;
+      border-radius: 8px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: var(--charcoal);
+      background: var(--accent);
+      box-shadow: 0 13px 26px rgba(245, 158, 11, 0.32);
+    }
+
+    .button-primary:hover {
+      background: #fbbf24;
+    }
+
+    .button-secondary {
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-panel {
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .metric-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .metric {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .metric-icon,
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(22, 163, 74, 0.16);
+      color: var(--accent);
+      font-size: 1.7rem;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--white);
+      font-size: 1.04rem;
+    }
+
+    .metric span {
+      color: #cbd5e1;
+      font-size: 0.94rem;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 38px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--green-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: var(--charcoal);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .about-visual {
+      min-height: 430px;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(22, 163, 74, 0.05), rgba(17, 24, 39, 0.05)),
+        url("https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=1200&q=85") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .timeline-item {
+      padding-left: 18px;
+      border-left: 4px solid var(--green);
+    }
+
+    .timeline-item strong {
+      display: block;
+      color: var(--charcoal);
+    }
+
+    .features {
+      background: var(--white);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .feature-card,
+    .testimonial-card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 14px 35px rgba(17, 24, 39, 0.08);
+    }
+
+    .feature-card h3,
+    .testimonial-card h3 {
+      margin-bottom: 10px;
+      color: var(--charcoal);
+      font-size: 1.2rem;
+    }
+
+    .feature-card p,
+    .testimonial-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .feature-icon {
+      margin-bottom: 22px;
+      color: var(--green-dark);
+      background: #eaf8ef;
+    }
+
+    .testimonials {
+      background:
+        linear-gradient(135deg, rgba(17, 32, 27, 0.96), rgba(15, 122, 58, 0.92)),
+        url("https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color: var(--white);
+    }
+
+    .testimonials .section-kicker,
+    .testimonials h2,
+    .testimonials .lead {
+      color: var(--white);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .testimonial-card {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+    }
+
+    .testimonial-card p,
+    .testimonial-card h3 {
+      color: var(--white);
+    }
+
+    .quote {
+      font-size: 2.2rem;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(300px, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact-info {
+      padding: 30px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--charcoal);
+    }
+
+    .contact-info h2 {
+      color: var(--white);
+    }
+
+    .contact-info p {
+      color: #dce7df;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      padding: 0;
+      margin: 28px 0 0;
+      list-style: none;
+    }
+
+    .contact-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #eff6f0;
+    }
+
+    .contact-form {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+      font-weight: 800;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid #cbd5d1;
+      border-radius: 8px;
+      color: var(--ink);
+      background: #fbfdfc;
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.16);
+    }
+
+    .site-footer {
+      padding: 32px 0;
+      color: #cbd5e1;
+      background: #0e1512;
+    }
+
+    .footer-inner {
+      width: min(1140px, calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      color: var(--white);
+    }
+
+    .social-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        min-height: auto;
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container,
+      .nav,
+      .footer-inner {
+        width: min(100% - 24px, 1140px);
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+
+      .hero {
+        padding: 66px 0 58px;
+      }
+
+      .nav-links a {
+        padding-inline: 8px;
+        font-size: 0.86rem;
+      }
+
+      .hero-panel,
+      .feature-card,
+      .testimonial-card,
+      .contact-info,
+      .contact-form {
+        padding: 22px;
+      }
+
+      .metric {
+        grid-template-columns: 46px 1fr;
+      }
+
+      .metric-icon,
+      .feature-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.35rem;
+      }
+
+      .about-visual {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <nav class="nav" aria-label="Navegacion principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio de Cultura Ciclista">
+        <span class="logo-mark" aria-hidden="true">CC</span>
+        <span>Cultura Ciclista</span>
+      </a>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Pilares</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#footer">Redes</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Movilidad viva desde 1817</span>
+          <h1 id="hero-title">El vehiculo del futuro se invento hace dos siglos. Sumate al cambio.</h1>
+          <p>Exploramos la historia, la mecanica y el presente urbano de la bicicleta para que cada viaje sea mas consciente, eficiente y compartido.</p>
+          <div class="cta-row">
+            <a class="button button-primary" href="#contacto">Unite a la Comunidad</a>
+            <a class="button button-secondary" href="#servicios">Ver actividades</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Datos destacados de la comunidad">
+          <div class="metric-list">
+            <div class="metric">
+              <span class="metric-icon" aria-hidden="true">360</span>
+              <div>
+                <strong>Historia en movimiento</strong>
+                <span>De la draisiana a la bici electrica, contamos la evolucion que cambio las ciudades.</span>
+              </div>
+            </div>
+            <div class="metric">
+              <span class="metric-icon" aria-hidden="true">Fix</span>
+              <div>
+                <strong>Mecanica para todos</strong>
+                <span>Aprende ajustes, frenos, cambios y mantenimiento preventivo sin vueltas.</span>
+              </div>
+            </div>
+            <div class="metric">
+              <span class="metric-icon" aria-hidden="true">Go</span>
+              <div>
+                <strong>Rutas urbanas</strong>
+                <span>Salidas culturales para redescubrir la ciudad desde otra velocidad.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="nosotros" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div>
+          <span class="section-kicker">Sobre nosotros</span>
+          <h2 id="about-title">Una comunidad para entender, cuidar y disfrutar la bicicleta.</h2>
+          <p class="lead">Cultura Ciclista nace para unir divulgacion, practica y encuentro. Miramos hacia atras para valorar la invencion que democratizo el movimiento, y hacia adelante para impulsar ciudades mas sanas, humanas y sostenibles.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>Origen e invencion</strong>
+              <span>La bicicleta evoluciono con ingenio mecanico, nuevos materiales y una idea potente: moverse con energia propia.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Ciudad y salud urbana</strong>
+              <span>Menos ruido, menos emisiones, mas autonomia y trayectos cotidianos que tambien cuidan el cuerpo.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Cultura compartida</strong>
+              <span>Charlas, talleres y salidas convierten el pedaleo en aprendizaje colectivo.</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual" role="img" aria-label="Bicicleta urbana frente a una pared verde"></div>
+      </div>
+    </section>
+
+    <section class="section features" id="servicios" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Pilares de la plataforma</span>
+          <h2 id="features-title">Conocimiento util para pedalear mejor.</h2>
+          <p class="lead">Cada actividad esta pensada para acercar la bici a la vida diaria: aprender su historia, mantenerla en condiciones y compartir recorridos con sentido.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">H</span>
+            <h3>Historia y Evolucion</h3>
+            <p>Notas, lineas de tiempo y encuentros de divulgacion sobre modelos, hitos tecnologicos, carreras, oficios y movimientos sociales ligados a la bicicleta.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">M</span>
+            <h3>Talleres de Mecanica</h3>
+            <p>Sesiones practicas para diagnosticar ruidos, regular cambios, ajustar frenos, reparar pinchaduras y armar un kit basico de mantenimiento.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">R</span>
+            <h3>Cicloturismo Cultural</h3>
+            <p>Salidas urbanas y recorridos guiados por barrios, patrimonio, parques y circuitos seguros para vivir la ciudad sobre dos ruedas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" id="testimonios" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Voces de la comunidad</span>
+          <h2 id="testimonials-title">Historias reales de quienes eligieron pedalear.</h2>
+          <p class="lead">La bici no solo acorta distancias: abre conversaciones, cambia rutinas y devuelve otra relacion con el tiempo.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="quote" aria-hidden="true">&ldquo;</div>
+            <p>Empece usando la bici para ir al trabajo y termine conociendo la historia de mi propio barrio en las salidas de los sabados.</p>
+            <h3>Martina R.</h3>
+          </article>
+          <article class="testimonial-card">
+            <div class="quote" aria-hidden="true">&ldquo;</div>
+            <p>El taller de mecanica me dio independencia. Ahora ajusto mis frenos, reviso la transmision y salgo con mucha mas confianza.</p>
+            <h3>Diego L.</h3>
+          </article>
+          <article class="testimonial-card">
+            <div class="quote" aria-hidden="true">&ldquo;</div>
+            <p>Cultura Ciclista me hizo mirar la movilidad con otros ojos: menos auto, mas aire, mas comunidad y mas ganas de moverme.</p>
+            <h3>Florencia S.</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <span class="section-kicker">Contacto</span>
+          <h2 id="contact-title">Recibi novedades, talleres y proximas salidas.</h2>
+          <p>Dejanos tu mensaje y te sumamos al circuito de actividades de Cultura Ciclista. Compartimos agenda, recursos y convocatorias para seguir pedaleando juntos.</p>
+          <ul class="contact-list">
+            <li><span aria-hidden="true">OK</span><span>Boletin mensual con notas de divulgacion y rutas recomendadas.</span></li>
+            <li><span aria-hidden="true">OK</span><span>Invitaciones a talleres de mecanica basica e intermedia.</span></li>
+            <li><span aria-hidden="true">OK</span><span>Encuentros comunitarios para ciclistas nuevos y experimentados.</span></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Contanos que te interesa: historia, mecanica, salidas urbanas o voluntariado." required></textarea>
+          </div>
+          <button class="button button-primary" type="submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Cultura Ciclista. Todos los derechos reservados.</p>
+      <div class="social-links" aria-label="Redes sociales">
+        <a href="#" aria-label="Instagram de Cultura Ciclista">Instagram</a>
+        <a href="#" aria-label="Facebook de Cultura Ciclista">Facebook</a>
+        <a href="#" aria-label="YouTube de Cultura Ciclista">YouTube</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
